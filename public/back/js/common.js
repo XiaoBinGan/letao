@@ -5,11 +5,12 @@
 
 
 //关闭进度环
-NProgress.configure({ showSpinner: false });
+
 //进度条
 $(document).ajaxStart(function () {
   NProgress.start();
 });
+NProgress.configure({showSpinner: false });
 $(document).ajaxStop(function () {
   setTimeout(function () {
     NProgress.done();
@@ -26,7 +27,7 @@ if(location.href.indexOf("login.html")==-1){
     success:function (info) {
       //console.log(info.error);
       if(info.error==400){
-        //location.href="login.html";
+        location.href="login.html";
       }
     }
   });

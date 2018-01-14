@@ -75,9 +75,9 @@ $(function () {
   //注册表单校验成功事件
   $form.on("success.form.bv", function (e) {
 
-    //var categoryName = $("[name='categoryName']").val();
+      //var categoryName = $("[name='categoryName']").val();
 
-    e.preventDefault();
+      e.preventDefault();
     console.log("呵呵");
     //发送ajax请求，
     $.ajax({

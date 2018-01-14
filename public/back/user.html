@@ -37,7 +37,7 @@
         </ul>
       </li>
       <li>
-        <a href="product.html" >
+        <a href="product.html">
           <span class="glyphicon glyphicon-tags"></span>
           商品管理</a>
       </li>
@@ -47,16 +47,47 @@
 <div class="min">
   <div class="min_title">
     <a href="javascript:;" class="pull-left sildeshow"><span class="glyphicon glyphicon-align-justify"></span></a>
-    <a href="javascript:;" class="pull-right" data-target="#myModal" data-toggle="modal"><span class="glyphicon glyphicon-log-out"></span></a>
+    <a href="javascript:;" class="pull-right" data-target="#myModal" data-toggle="modal"><span
+        class="glyphicon glyphicon-log-out"></span></a>
   </div>
+  <div class="container-fluid">
+    <div class="nav">
+      <ol class="breadcrumb">
+        <li><a href="#">系统管理</a></li>
+        <li class="active">用户管理</li>
+      </ol>
+    </div>
+    <div class="lt_content">
+      <table class="table table-bordered table-hover">
+        <thead>
+        <td width="10%">序号</td>
+        <td width="30%">用户名</td>
+        <td width="30%">手机号</td>
+        <td width="20%">状态</td>
+        <td width="10%">操作</td>
+        </thead>
+        <tbody>
+        <!--填入模版-->
+        </tbody>
+      </table>
 
+
+    </div>
+    <!--分页-->
+    <div class="pull-right">
+    <ul id="paginator">
+
+    </ul>
+    </div>
+  </div>
 
 </div>
 <div class="modal fade" id="myModal">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">温馨提示</h4>
       </div>
       <div class="modal-body">
@@ -69,24 +100,56 @@
     </div>
   </div>
 </div>
+<!--状态切换-->
+<div class="modal fade" id="myModal1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">温馨提示</h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-danger"><i class="glyphicon glyphicon-info-sign"></i> 你确定要执行此操作吗？</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary btn-check">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
+<script type="text/html" id="tpl">
+  {{each rows v i }}
+  <tr>
+    <td>{{(page-1)*size+i+1}}</td>
+    <td>{{v.username}}</td>
+    <td>{{v.mobile}}</td>
+    <td>{{v.isDelete==0?'禁用':'启用'}}</td>
+    <td data-id="{{v.id}}">
+    {{if v.isDelete===0}}
+      <button class="btn btn-sm btn-success btn-confirm " data-target="#myModal1" data-toggle="modal">启用</button>
+      {{/if}}
+      {{if v.isDelete===1}}
+      <button class="btn btn-danger btn-sm btn-confirm" data-target="#myModal1" data-toggle="modal">禁用</button>
+      {{/if}}
+    </td>
+  </tr>
+  {{/each}}
 
 
-
-
-
-
-
-
-
+</script>
 
 <script src="./lib/jquery/jquery.min.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
-<script src="./lib/echarts/echarts.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="./js/common.js"></script>
-<script src="./js/index.js"></script>
+<script src="./js/user.js"></script>
+
 </body>
 </html>

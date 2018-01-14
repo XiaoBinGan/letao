@@ -13,7 +13,10 @@ html, body {
 .body-1 {
   background-color: #222d32;
 }
-
+.table.table-bordered td {
+  text-align: center;
+  vertical-align: middle;
+}
 /*登录页面的样式*/
 .mt_1 {
   margin-top: 150px;
