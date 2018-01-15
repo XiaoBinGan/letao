@@ -1,0 +1,34 @@
+.c_l{
+  width: 90px;
+  height: 100%;
+  background-color: pink;
+  float: left;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+.c_l ul li{
+  height: 50px;
+  line-height:50px;
+  border-bottom:1px solid red;
+  border-right:1px solid red;
+}
+.c_l ul li.now{/*now点击的时候切换*/
+  background-color: #fff;
+  border-bottom:1px solid red;
+  border-right:1px solid transparent;
+}
+
+.c_r{
+  height: 100%;
+  background-color: #fff;
+  margin-left:90px;
+  position: relative;
+  overflow: hidden;
+}
+.c_r ul li{
+  float: left;
+  width: 33.33%;
+  text-align: center;
+  /*line-height:;*/
+}
